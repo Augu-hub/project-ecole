@@ -1,52 +1,69 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+@extends('layouts.auth')
+
+@section('title', 'Créer un compte')
+@section('carte-tag', 'Inscription')
+@section('carte-titre', 'Créer un compte')
+
+@section('content')
+      <form method="POST" action="{{ route('register') }}" data-attente="Création…">
         @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        <div class="champ">
+          <label for="name">{{ __('Name') }}</label>
+          <input type="text" name="name" id="name"
+                 class="@error('name') invalide @enderror"
+                 value="{{ old('name') }}"
+                 autocomplete="name"
+                 required autofocus>
+          @foreach ($errors->get('name') as $message)
+            <div class="champ-erreur">{{ $message }}</div>
+          @endforeach
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div class="champ">
+          <label for="email">{{ __('Email') }}</label>
+          <input type="email" name="email" id="email"
+                 class="@error('email') invalide @enderror"
+                 value="{{ old('email') }}"
+                 autocomplete="username" autocapitalize="off" spellcheck="false"
+                 required>
+          @foreach ($errors->get('email') as $message)
+            <div class="champ-erreur">{{ $message }}</div>
+          @endforeach
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="champ">
+          <label for="password">{{ __('Password') }}</label>
+          <div class="mdp">
+            <input type="password" name="password" id="password"
+                   class="@error('password') invalide @enderror"
+                   autocomplete="new-password"
+                   required>
+            <button type="button" class="mdp-bascule" aria-controls="password" aria-pressed="false">Afficher</button>
+          </div>
+          @foreach ($errors->get('password') as $message)
+            <div class="champ-erreur">{{ $message }}</div>
+          @endforeach
         </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        <div class="champ">
+          <label for="password_confirmation">{{ __('Confirm Password') }}</label>
+          <div class="mdp">
+            <input type="password" name="password_confirmation" id="password_confirmation"
+                   class="@error('password_confirmation') invalide @enderror"
+                   autocomplete="new-password"
+                   required>
+            <button type="button" class="mdp-bascule" aria-controls="password_confirmation" aria-pressed="false">Afficher</button>
+          </div>
+          @foreach ($errors->get('password_confirmation') as $message)
+            <div class="champ-erreur">{{ $message }}</div>
+          @endforeach
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+        <button type="submit" class="btn-connexion">{{ __('Register') }}</button>
+      </form>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+      <div class="actions-auth centre">
+        <a href="{{ route('login') }}" class="lien-retour">{{ __('Already registered?') }}</a>
+      </div>
+@endsection

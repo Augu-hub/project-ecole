@@ -32,7 +32,7 @@ class ClasseMatiereController extends Controller
             ? $reprise['source']->matieres()->orderBy('nom_matiere')->pluck('nom_matiere')
             : collect();
 
-        return view('back.pages.classe_matieres.index', compact(
+        return view('back.pages.classe-matieres.index', compact(
             'classeAnnee', 'matieres', 'coefficients', 'enseignants', 'reprise', 'matieresAReprendre'
         ));
     }

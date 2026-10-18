@@ -22,7 +22,7 @@ class AnneeScolaireController extends Controller
     {
         $annees = AnneeScolaire::orderBy('date_debut', 'desc')->paginate(10);
 
-        return view('back.pages.annees_scolaires.index', compact('annees'));
+        return view('back.pages.annees-scolaires.index', compact('annees'));
     }
 
     /**
@@ -30,7 +30,7 @@ class AnneeScolaireController extends Controller
      */
     public function create()
     {
-        return view('back.pages.annees_scolaires.create');
+        return view('back.pages.annees-scolaires.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class AnneeScolaireController extends Controller
      */
     public function edit(AnneeScolaire $anneeScolaire)
     {
-        return view('back.pages.annees_scolaires.edit', compact('anneeScolaire'));
+        return view('back.pages.annees-scolaires.edit', compact('anneeScolaire'));
     }
 
     /**

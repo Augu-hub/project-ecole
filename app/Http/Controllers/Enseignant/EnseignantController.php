@@ -55,6 +55,6 @@ class EnseignantController extends Controller
 
         $jours = EmploiDuTempsController::JOURS;
 
-        return view('enseignant.emploi_du_temps', compact('enseignant', 'emploisParJour', 'jours'));
+        return view('enseignant.emploi-du-temps', compact('enseignant', 'emploisParJour', 'jours'));
     }
 }

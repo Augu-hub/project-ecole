@@ -66,3 +66,33 @@ tests/            tests Pest (Feature, Unit)
 
 - `deploy/supervisor/reverb-ccpa.conf` : programme Supervisor qui maintient le serveur Reverb actif.
 - `deploy/.env.production` : variables d'environnement du serveur. Ce fichier contient des secrets et n'est jamais versionné.
+
+## Données de démonstration
+
+Un jeu de données complet et réaliste permet de présenter l'application comme un établissement en activité : le Complexe Catholique Père Aupiais avec deux années scolaires (2024-2025 archivée, 2025-2026 active, trois trimestres chacune), 12 classes de la Sixième à la Terminale (une classe par niveau au collège, séries A, C et D au lycée), environ 300 élèves par an, près de 250 parents (fratries regroupées), 30 enseignants et le personnel administratif.
+
+Tous les modules sont alimentés : notes de chaque élève dans chaque matière pour chaque trimestre des deux années (composition, devoir des matières principales, interrogation pour l'année active, conduite ; environ 29 000 notes), coefficients par niveau et série, réinscriptions (promus, redoublants, nouveaux, départs), scolarité en trois tranches, frais de dossier et paiements (espèces, FedaPay, chèque, virement, carte ; familles à jour, en retard ou en difficulté), cantine, uniformes, emploi du temps sans conflit, certificats de scolarité, communiqués, messagerie parents/personnel et journal des connexions à l'application mobile. Noms, prénoms, quartiers et numéros de téléphone (format `01XXXXXXXX`) sont béninois. Les données sont reproductibles : deux chargements produisent exactement les mêmes enregistrements.
+
+Le chargement est volontaire (il n'est jamais lancé par `DatabaseSeeder`), refusé en production et exige une base vide :
+
+```bash
+php artisan migrate:fresh --seed --seeder=DemoSeeder
+```
+
+Il ne prend que quelques secondes. Le code se trouve dans `database/seeders/DemoSeeder.php` (orchestration) et `database/seeders/Demo/` (un seeder par module, listes de noms et programme scolaire dans `Demo/Data/`).
+
+Comptes de démonstration (mot de passe `password` pour tous les comptes, y compris les comptes générés) :
+
+| Rôle | Identifiant | Remarque |
+|---|---|---|
+| Administrateur | `admin@ccpa.test` | accès complet |
+| Directeur | `directeur@ccpa.test` | |
+| Censeur | `censeur@ccpa.test` | |
+| Économe | `econome@ccpa.test` | aussi `comptable@ccpa.test` (rôle Économe) |
+| Préfet | `prefet@ccpa.test` | chef d'équipe des surveillants |
+| Surveillant | `surveillant@ccpa.test` | rattaché au préfet |
+| Saisisseur de notes | `saisisseur@ccpa.test` | |
+| Enseignant | `enseignant@ccpa.test` | professeur de mathématiques |
+| Parent | `parent@ccpa.test` | application mobile : téléphone `0197000101`, trois enfants scolarisés |
+
+Les autres comptes (enseignants, parents) suivent le modèle `prenom.nom@ccpa.test` et `prenom.nom@parents.ccpa.test`.

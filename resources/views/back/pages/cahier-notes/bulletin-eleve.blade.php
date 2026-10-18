@@ -150,16 +150,7 @@
 </div>
 
 @push('styles')
-<style>
-@media print {
-    .sidebar, nav, .breadcrumb-parent, .btn, .badge.bg-info-600 { display: none !important; }
-    table { font-size: 10pt; }
-    thead th { background-color: #1D4ED8 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .bg-primary-700 { background-color: #1E40AF !important; }
-    .bg-primary-800 { background-color: #1E3A8A !important; }
-    .bg-primary-50 { background-color: #EFF6FF !important; }
-}
-</style>
+<link rel="stylesheet" href="{{ asset('assets/css/pages/cahier-notes-bulletin-eleve.css') }}">
 @endpush
 
 @endsection

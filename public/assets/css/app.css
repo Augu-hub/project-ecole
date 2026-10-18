@@ -1,0 +1,24 @@
+/*
+ * Back-office : surcharges communes à toutes les pages, chargées par
+ * resources/views/back/layouts/master.blade.php juste après style.css (gabarit).
+ * Les styles propres à une seule page vont dans public/assets/css/pages/<page>.css,
+ * ajoutés par la page avec @push('styles').
+ */
+
+/* Menu latéral : lien de menu désactivé */
+.disabled-link {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: inherit;
+}
+.disabled-link:hover,
+.disabled-link:focus {
+  text-decoration: none;
+}
+
+/* Menu latéral : avatar de repli (initiales), texte bien centré */
+.user-avatar-fallback {
+  line-height: 1;
+}

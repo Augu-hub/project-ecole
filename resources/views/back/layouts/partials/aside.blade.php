@@ -539,22 +539,3 @@
     </ul>
   </div>
 </aside>
-
-<style>
-/* Exemples de classes supplémentaires pour améliorer la cohérence */
-.disabled-link {
-  opacity: 0.55;
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-  color: inherit;
-}
-.disabled-link:hover,
-.disabled-link:focus {
-  text-decoration: none;
-}
-/* Pour le fallback avatar, garder le texte bien centré */
-.user-avatar-fallback {
-  line-height: 1;
-}
-</style>

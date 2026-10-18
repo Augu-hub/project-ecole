@@ -13,7 +13,7 @@ class ClasseAnneeController extends Controller
     public function index()
     {
         $classeAnnees = ClasseAnnee::with(['classe.niveau', 'anneeScolaire'])->orderBy('id', 'desc')->get();
-        return view('back.pages.classe_annees.index', compact('classeAnnees'));
+        return view('back.pages.classe-annees.index', compact('classeAnnees'));
     }
 
     public function create()
@@ -23,7 +23,7 @@ class ClasseAnneeController extends Controller
         });
         $anneesScolaires = AnneeScolaire::orderBy('libelle', 'desc')->pluck('libelle', 'id');
         $anneeActiveId = AnneeScolaire::active()?->id;
-        return view('back.pages.classe_annees.create', compact('classes', 'anneesScolaires', 'anneeActiveId'));
+        return view('back.pages.classe-annees.create', compact('classes', 'anneesScolaires', 'anneeActiveId'));
     }
 
     public function store(Request $request)
@@ -52,7 +52,7 @@ class ClasseAnneeController extends Controller
             return [$classe->id => $classe->full_name];
         });
         $anneesScolaires = AnneeScolaire::orderBy('libelle', 'desc')->pluck('libelle', 'id');
-        return view('back.pages.classe_annees.edit', compact('classeAnnee', 'classes', 'anneesScolaires'));
+        return view('back.pages.classe-annees.edit', compact('classeAnnee', 'classes', 'anneesScolaires'));
     }
 
     public function update(Request $request, ClasseAnnee $classeAnnee)
