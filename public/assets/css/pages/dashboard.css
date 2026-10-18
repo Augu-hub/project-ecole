@@ -1,0 +1,61 @@
+/* Tableau de bord du back-office (resources/views/back/dashboard.blade.php) */
+/* Tableau de bord : couleurs et filets pris sur les variables du thème (modes clair et sombre) */
+.tdb { --tdb-accent: var(--primary-600); --tdb-accent-doux: var(--primary-50); --tdb-filet: var(--neutral-200); --tdb-repli: var(--neutral-400); }
+
+.tdb-annee { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .875rem; border-radius: 999px; background: var(--tdb-accent-doux); color: var(--text-primary-light); font-size: .875rem; font-weight: 600; white-space: nowrap; }
+.tdb-annee i { color: var(--tdb-accent); font-size: 1.125rem; }
+
+/* Le thème impose la taille des titres h1 à h6 avec !important : il en faut un ici aussi */
+.tdb-titre-section { margin: 0 0 .75rem; font-size: .75rem !important; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary-light); }
+.tdb-titre-section span { font-weight: 500; letter-spacing: 0; text-transform: none; }
+
+.tdb-tuile__libelle { font-size: .875rem; font-weight: 500; color: var(--text-secondary-light); }
+.tdb-tuile__icone { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: .625rem; background: var(--tdb-accent-doux); color: var(--tdb-accent); font-size: 1.125rem; }
+.tdb-tuile__valeur { font-size: 1.75rem; font-weight: 600; line-height: 1.2; color: var(--text-primary-light); }
+.tdb-tuile__detail { margin: .5rem 0 0; font-size: .8125rem; color: var(--text-secondary-light); }
+
+.tdb-carte__entete { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .875rem 1.25rem; border-bottom: 1px solid var(--tdb-filet); }
+.tdb-carte__entete--suite { border-top: 1px solid var(--tdb-filet); }
+.tdb-carte__titre { margin: 0; font-size: 1rem !important; font-weight: 600; color: var(--text-primary-light); }
+.tdb-carte__titre span { font-weight: 400; color: var(--text-secondary-light); }
+.tdb-carte__lien { flex-shrink: 0; font-size: .8125rem; font-weight: 500; color: var(--tdb-accent); white-space: nowrap; }
+.tdb-carte__lien:hover { text-decoration: underline; }
+.tdb-carte__note { margin: 0; padding: .75rem 1.25rem; border-top: 1px solid var(--tdb-filet); font-size: .75rem; color: var(--text-secondary-light); }
+
+/* Barres : épaisseur fixe, départ sur la ligne de base, extrémité arrondie */
+.tdb-barre { display: block; height: 8px; background: var(--tdb-repli); border-start-end-radius: 4px; border-end-end-radius: 4px; }
+.tdb-barre--accent { background: var(--tdb-accent); }
+
+.tdb-jauge { display: grid; grid-template-columns: minmax(5rem, 9rem) 1fr auto; align-items: center; column-gap: .75rem; padding: .3125rem 0; font-size: .875rem; }
+.tdb-jauge__libelle { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary-light); }
+.tdb-jauge__piste { display: block; overflow: hidden; height: 8px; border-radius: 4px; background: var(--tdb-accent-doux); }
+.tdb-jauge__valeur { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; text-align: end; color: var(--text-primary-light); }
+.tdb-jauge__valeur small { font-weight: 400; color: var(--text-secondary-light); }
+
+.tdb-tableau { width: 100%; border-collapse: collapse; }
+.tdb-tableau th, .tdb-tableau td { padding: .75rem 1.25rem; border-bottom: 1px solid var(--tdb-filet); vertical-align: middle; }
+.tdb-tableau--serre th, .tdb-tableau--serre td { padding-block: .4375rem; }
+.tdb-tableau thead th { font-size: .75rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; color: var(--text-secondary-light); }
+.tdb-tableau tbody th, .tdb-tableau tfoot th { font-size: .875rem; font-weight: 600; white-space: nowrap; color: var(--text-primary-light); }
+.tdb-tableau tbody tr:last-child > * { border-bottom: 0; }
+.tdb-tableau tfoot > tr > * { border-top: 1px solid var(--tdb-filet); border-bottom: 0; }
+.tdb-tableau tr.est-active > * { background: var(--tdb-accent-doux); }
+.tdb-pastille { display: inline-block; margin-inline-start: .5rem; padding: .125rem .5rem; border-radius: 999px; border: 1px solid var(--tdb-accent); font-size: .6875rem; font-weight: 600; color: var(--text-primary-light); vertical-align: middle; }
+
+.tdb-mesure { display: flex; align-items: center; gap: .625rem; }
+.tdb-mesure__valeur { flex: 0 0 auto; font-size: .875rem; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; text-align: end; color: var(--text-primary-light); }
+.tdb-mesure__barre { flex: 1 1 auto; min-width: 3.5rem; }
+.tdb-mesure__note { margin-top: .25rem; font-size: .75rem; color: var(--text-secondary-light); }
+
+.tdb-liste { margin: 0; padding: 0; list-style: none; }
+.tdb-liste > li { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .75rem 1.25rem; border-bottom: 1px solid var(--tdb-filet); }
+.tdb-liste > li:last-child { border-bottom: 0; }
+.tdb-liste > li > div:first-child { min-width: 0; }
+.tdb-liste__principal { font-size: .875rem; font-weight: 600; color: var(--text-primary-light); overflow-wrap: anywhere; }
+.tdb-liste__secondaire { font-size: .8125rem; color: var(--text-secondary-light); overflow-wrap: anywhere; }
+.tdb-liste__valeur { flex-shrink: 0; font-size: .875rem; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; text-align: end; color: var(--text-primary-light); }
+.tdb-liste__valeur small { font-weight: 400; color: var(--text-secondary-light); }
+
+.tdb-vide { display: flex; flex-direction: column; align-items: center; gap: .25rem; padding: 1.75rem 1.25rem; text-align: center; font-size: .8125rem; color: var(--text-secondary-light); }
+.tdb-vide i { font-size: 1.75rem; color: var(--neutral-400); }
+.tdb-vide strong { font-size: .875rem; font-weight: 600; color: var(--text-primary-light); }

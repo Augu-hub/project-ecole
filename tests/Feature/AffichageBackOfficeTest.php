@@ -72,7 +72,7 @@ test('les styles et scripts propres a une page sont charges, sans le script de d
     $this->actingAs(adminAffichage())
         ->get(route('admin.notes.index'))
         ->assertOk()
-        ->assertSee('.badge.bg-purple-soft', false)
+        ->assertSee('assets/css/pages/notes-index.css', false)
         ->assertSee('Auto-submit on filter change', false)
         ->assertDontSee('Revenue Statistics Chart')
         ->assertDontSee('createChartThree');

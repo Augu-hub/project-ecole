@@ -443,26 +443,7 @@
 </div>
 
 @push('styles')
-<style>
-/* ── Impression ───────────────────────────────────────── */
-@media print {
-    .sidebar, nav, .breadcrumb-parent, .btn,
-    .row.gy-3.mb-24 { display: none !important; }
-    .table-responsive { overflow: visible !important; max-height: none !important; }
-    table { font-size: 6.5pt !important; }
-    thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-}
-/* ── Hover ligne ─────────────────────────────────────── */
-#tableCahier tbody tr:hover td:not([style*='sticky']) {
-    filter: brightness(.95);
-}
-/* ── Bordures ────────────────────────────────────────── */
-#tableCahier.table-bordered td,
-#tableCahier.table-bordered th {
-    border-color: #E2E8F0 !important;
-}
-</style>
+<link rel="stylesheet" href="{{ asset('assets/css/pages/cahier-notes-classe.css') }}">
 @endpush
 
 @endsection

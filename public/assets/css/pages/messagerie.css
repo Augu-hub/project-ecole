@@ -1,0 +1,8 @@
+/* Messagerie (resources/views/back/pages/messagerie/index.blade.php) */
+/* État "conversation sélectionnée" cohérent avec la palette teal du thème
+   (remplace le bleu par défaut de Bootstrap .active, illisible sur ce thème). */
+#conversations-list .list-group-item.conv-selected {
+    background-color: var(--primary-50, #E6F7F5);
+    border-left: 3px solid var(--primary-600, #25A194);
+    color: inherit;
+}

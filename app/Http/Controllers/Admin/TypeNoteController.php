@@ -11,12 +11,12 @@ class TypeNoteController extends Controller
     public function index()
     {
         $types = TypeNote::ordonnes()->paginate(15);
-        return view('back.pages.type_notes.index', compact('types'));
+        return view('back.pages.type-notes.index', compact('types'));
     }
 
     public function create()
     {
-        return view('back.pages.type_notes.create');
+        return view('back.pages.type-notes.create');
     }
 
     public function store(Request $request)
@@ -34,7 +34,7 @@ class TypeNoteController extends Controller
 
     public function edit(TypeNote $typeNote)
     {
-        return view('back.pages.type_notes.edit', compact('typeNote'));
+        return view('back.pages.type-notes.edit', compact('typeNote'));
     }
 
     public function update(Request $request, TypeNote $typeNote)

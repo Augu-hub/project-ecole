@@ -7,7 +7,9 @@
 <title>@yield('title') — {{ config('ecole.nom') }}</title>
 <link rel="icon" href="{{ asset('assets/images/LOGOCCPA.jpeg') }}">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-{{-- Page autonome (aucune requête base de données ni session) : elle doit s'afficher même quand l'application est en panne. --}}
+{{-- Mise en page unique de toutes les pages d'erreur (401, 402, 403, 404, 419, 429, 4xx, 500, 503, 5xx) :
+     chaque page fournit title, code, message et, au besoin, detail.
+     Page autonome (aucune requête base de données ni session, styles intégrés) : elle doit s'afficher même quand l'application est en panne. --}}
 <style>
 :root {
   --vert: #1b4d2e;
@@ -41,6 +43,11 @@ main { flex: 1; display: flex; align-items: center; justify-content: center; pad
 h1 { font-family: 'Cormorant Garamond', serif; font-size: 34px; line-height: 1.15; margin: 10px 0 14px; }
 .trait { width: 50px; height: 3px; background: var(--or); margin: 0 auto 20px; }
 p { color: var(--texte-doux); line-height: 1.7; font-size: 15px; }
+.detail {
+  margin-top: 18px; padding: 10px 14px; text-align: left;
+  border-left: 2px solid #a4262c; background: #fbf1f1; color: #a4262c;
+  font-size: 13.5px; line-height: 1.5;
+}
 .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
 .btn {
   display: inline-block; padding: 13px 22px; font: 600 13px 'DM Sans', sans-serif;
@@ -69,6 +76,9 @@ p { color: var(--texte-doux); line-height: 1.7; font-size: 15px; }
     <h1>@yield('title')</h1>
     <div class="trait"></div>
     <p>@yield('message')</p>
+    @hasSection('detail')
+      <div class="detail" role="alert">@yield('detail')</div>
+    @endif
 
     <div class="actions">
       <a href="{{ url()->previous() }}" class="btn btn-vide" onclick="if (history.length > 1) { history.back(); return false; }">Page précédente</a>

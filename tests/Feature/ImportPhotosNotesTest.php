@@ -214,7 +214,7 @@ test("deux photos sont lues l'une après l'autre et réunies en un seul résulta
 
     photosEnvoyer($this, $ctx, ['image_files' => [photosPhoto('page-1.jpg'), photosPhoto('page-2.jpg')]])
         ->assertOk()
-        ->assertViewIs('back.pages.notes.import_preview')
+        ->assertViewIs('back.pages.notes.import-preview')
         ->assertViewHas('hasErrors', false)
         ->assertSee('Lecture de 2 photos par IA réussie')
         ->assertSee('3 notes lues sur 3 élèves.')
@@ -747,7 +747,7 @@ test('la fenêtre « Photo → IA » accepte plusieurs photos et ne nomme pas le
         ->assertSee('accept="image/jpeg,image/png,image/webp"', false)
         // Le script qui ajoute, réduit et affiche les photos est bien envoyé au navigateur
         ->assertSee('function installerPhotosFiche()', false)
-        ->assertSee('.photos-fiche__retirer', false)
+        ->assertSee('assets/css/pages/notes-preview.css', false)
         ->assertDontSee('name="image_file"', false)
         ->assertDontSee('Mistral')
         ->assertDontSee('ri-robot-line', false);

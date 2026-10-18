@@ -412,77 +412,7 @@
 @endsection
 
 @push('styles')
-<style>
-/* Badges personnalisés */
-.badge.bg-purple-soft {
-    background-color: rgba(139, 92, 246, 0.1);
-    color: #8b5cf6;
-}
-.badge.bg-secondary-soft {
-    background-color: rgba(107, 114, 128, 0.1);
-    color: #6b7280;
-}
-.badge.bg-primary-soft {
-    background-color: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
-}
-.badge.bg-success-soft {
-    background-color: rgba(34, 197, 94, 0.1);
-    color: #16a34a;
-}
-.badge.bg-info-soft {
-    background-color: rgba(14, 165, 233, 0.1);
-    color: #0284c7;
-}
-.badge.bg-warning-soft {
-    background-color: rgba(245, 158, 11, 0.1);
-    color: #d97706;
-}
-.badge.bg-danger-soft {
-    background-color: rgba(239, 68, 68, 0.1);
-    color: #dc2626;
-}
-
-/* Filtres */
-.filter-select {
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-.filter-select:hover {
-    border-color: var(--bs-primary);
-}
-
-/* Boutons de tri */
-.btn-group .btn {
-    transition: all 0.2s ease;
-}
-.btn-group .btn:hover {
-    transform: translateY(-1px);
-}
-
-/* En-têtes de tableau */
-.table th a {
-    transition: all 0.2s ease;
-    font-weight: 600;
-}
-.table th a:hover {
-    color: var(--bs-primary) !important;
-}
-
-/* Lignes du tableau */
-.table-hover tbody tr {
-    transition: all 0.2s ease;
-}
-.table-hover tbody tr:hover {
-    background-color: rgba(59, 130, 246, 0.05);
-    transform: scale(1.01);
-}
-
-/* Tooltips personnalisés */
-.custom-tooltip {
-    --bs-tooltip-bg: var(--bs-primary);
-}
-</style>
+<link rel="stylesheet" href="{{ asset('assets/css/pages/notes-index.css') }}">
 @endpush
 
 @push('scripts')

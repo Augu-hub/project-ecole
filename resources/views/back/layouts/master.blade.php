@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="{{ asset('assets/css/lib/calendar.css') }}">
   <!-- main css -->
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+  <!-- surcharges communes du back-office -->
+  <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
   {{-- Styles propres à une page : @push('styles') --}}
   @stack('styles')
 </head>

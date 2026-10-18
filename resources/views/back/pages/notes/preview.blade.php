@@ -316,14 +316,7 @@
 @endsection
 
 @push('styles')
-<style>
-    /* « Photo → IA » : vignettes numérotées des photos choisies, avec un bouton pour en retirer une */
-    .photos-fiche { display: flex; flex-wrap: wrap; gap: 14px; padding-top: 8px; }
-    .photos-fiche__photo { position: relative; width: 96px; height: 96px; }
-    .photos-fiche__photo img { display: block; width: 100%; height: 100%; object-fit: cover; border: 2px solid #003366; border-radius: 8px; }
-    .photos-fiche__numero { position: absolute; left: 6px; bottom: 6px; min-width: 22px; padding: 0 6px; border-radius: 11px; background: #003366; color: #fff; font-size: 12px; font-weight: 600; line-height: 22px; text-align: center; }
-    .photos-fiche__retirer { position: absolute; top: -8px; right: -8px; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; padding: 0; border: 2px solid #fff; border-radius: 50%; background: #dc3545; color: #fff; font-size: 18px; line-height: 1; cursor: pointer; }
-</style>
+<link rel="stylesheet" href="{{ asset('assets/css/pages/notes-preview.css') }}">
 @endpush
 
 @push('scripts')

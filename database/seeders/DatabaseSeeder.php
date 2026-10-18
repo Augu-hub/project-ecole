@@ -12,6 +12,10 @@ class DatabaseSeeder extends Seeder
 
     /**
      * Seed the application's database.
+     *
+     * Le jeu de démonstration complet (DemoSeeder) n'est volontairement PAS appelé ici : il se charge
+     * à la demande, sur une base vide et jamais en production (voir README, « Données de démonstration ») :
+     *   php artisan migrate:fresh --seed --seeder=DemoSeeder
      */
     public function run(): void
     {

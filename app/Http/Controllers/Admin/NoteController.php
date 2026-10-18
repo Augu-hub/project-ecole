@@ -1042,7 +1042,7 @@ class NoteController extends Controller
         $hasErrors = collect($importedData)->filter(fn ($i) => ! empty($i['errors']))->isNotEmpty();
         Session::put('imported_data', $importedData);
 
-        return view('back.pages.notes.import_preview', compact(
+        return view('back.pages.notes.import-preview', compact(
             'importedData', 'hasErrors', 'classeAnnee', 'matiere', 'periode', 'typeNote'
         ));
     }
@@ -1182,7 +1182,7 @@ class NoteController extends Controller
         // l'absence de toute note rattachée à un élève de la classe bloque.
         $hasErrors = $notesLues === 0;
 
-        return view('back.pages.notes.import_preview', compact(
+        return view('back.pages.notes.import-preview', compact(
             'importedData', 'hasErrors', 'classeAnnee', 'matiere', 'periode', 'typeNote'
         ))->with('ia_mode', true);
     }

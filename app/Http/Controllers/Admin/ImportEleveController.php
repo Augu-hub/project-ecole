@@ -38,7 +38,7 @@ class ImportEleveController extends Controller
     {
         $classesAnnees = ClasseAnnee::with('classe.niveau', 'anneeScolaire')->deLAnneeActive()->get();
 
-        return view('back.pages.eleves.import_create', compact('classesAnnees'));
+        return view('back.pages.eleves.import-create', compact('classesAnnees'));
     }
 
     /**
@@ -251,7 +251,7 @@ class ImportEleveController extends Controller
         Session::put('import_eleves_errors', $errors);
         Session::put('import_eleves_classe_annee', $classeAnnee->id);
 
-        return view('back.pages.eleves.import_preview', compact('data', 'errors', 'classeAnnee'));
+        return view('back.pages.eleves.import-preview', compact('data', 'errors', 'classeAnnee'));
     }
 
     /**

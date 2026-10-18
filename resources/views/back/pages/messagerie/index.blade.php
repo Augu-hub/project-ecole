@@ -52,15 +52,9 @@
     </div>
 </div>
 
-<style>
-    /* État "conversation sélectionnée" cohérent avec la palette teal du thème
-       (remplace le bleu par défaut de Bootstrap .active, illisible sur ce thème). */
-    #conversations-list .list-group-item.conv-selected {
-        background-color: var(--primary-50, #E6F7F5);
-        border-left: 3px solid var(--primary-600, #25A194);
-        color: inherit;
-    }
-</style>
+@push('styles')
+<link rel="stylesheet" href="{{ asset('assets/css/pages/messagerie.css') }}">
+@endpush
 
 <script>
     window.MESSAGERIE_CONFIG = {
